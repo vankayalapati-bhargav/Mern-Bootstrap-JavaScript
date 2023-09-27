@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-5</title>
+    <style>
+        form{
+            background: linear-gradient(to bottom,rgb(253, 253, 125), rgb(249, 117, 179));
+            width: 750px;
+            margin: 5px auto;
+        }
+        table{
+            width: 600px;
+            margin: 5px auto;
+            padding-right: 14%;
+        }
+        td{
+            padding: 5px;
+            position: relative; 
+        }
+        th{
+            text-align: right;
+            padding-right: 10px;
+        }
+        input.poor{
+            border: none;
+        }
+        input.mismatch{
+            border: 2px solid red;
+        }
+        .warning{
+            color: red;
+            position: absolute;
+            top: 6px;
+            left: 330px;
+            right: -300px;
+        }
+        #registerButton{
+            background-color: red;
+            color: white;
+            border: 1px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return validate()" action="https://www.amazon.in" >
+        <table>
+            <caption style="color: blue; margin-left: 90px;"><h1>Registration form</h1></caption>
+            <tr>
+                <th><label for="full-name">Full Name</label></th>
+                <td>
+                    <input style="width: 98%" type="text" id="fname" name="full-name">
+                    <span id="fnamemsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="last-name">Last Name</label></th>
+                <td>
+                    <input style="width: 98%" type="text" id="lname" name="last-name">
+                    <span id="lnamemsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="email">Email</label></th>
+                <td>
+                    <input style="width: 98%" type="email" id="email" name="email">
+                    <span id="emailmsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="password">Password</label></th>
+                <td>
+                    <input style="width: 98%" type="password" id="password" name="password">
+                    <span id="passwordmsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="confirm-password">Re-enter Password</label></th>
+                <td>
+                    <input style="width: 98%" type="password" id="confirmpassword" name="confirm-password">
+                    <span id="confirmpasswordmsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Gender:</th>
+                <td>
+                    <input type="radio" style="cursor:pointer;" name="gender" value="male"> Male<br><br>
+                    <input type="radio" style="cursor:pointer;" name="gender" value="female"> Female
+                </td>
+            </tr>
+            <tr>
+                <th><label for="age">Age:</label></th>
+                <td>
+                    <input style="width: 98%" type="number" id="age" name="age">
+                    <span id="agemsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="phone-number">Phone Number</label></th>
+                <td>
+                    <input style="width: 98%" type="tel" id="phonenumber" name="phone-number">
+                    <span id="phonenumbermsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="address">Address</label></th>
+                <td>
+                    <textarea style="width: 98%" id="address" name="address" rows="4" cols="30"></textarea>
+                    <span id="addressmsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="state">State</label></th>
+                <td>
+                    <input style="width: 98%" type="text" id="state" name="state">
+                    <span id="statemsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="country" >Country</label></th>
+                <td>
+                    <select style="cursor:pointer;">
+                        <option>Choose your country</option>
+                        <option>India</option>
+                        <option>United States</option>
+                        <option>United Kingdom</option>
+                        <option>Australia</option>
+                        <option>Germany</option>
+                        <option>France</option>
+                        <option>Japan</option>
+                        <option>China</option>
+                        <option>Brazil</option>
+                        <option>Saint Helena</option>
+                        <option>Niue</option>
+                    </select>
+                    <span id="countrymsg" class="warning"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label>Languages Known</label></th>
+                <td>
+                    <input type="checkbox" style="cursor:pointer;">English
+                    <input type="checkbox" style="cursor:pointer;">Kannada
+                    <input type="checkbox" style="cursor:pointer;">Hindi
+                    <input type="checkbox" style="cursor:pointer;">Telugu
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" style="cursor:pointer;">Hereby I declare all the given details are true
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    Log in to <a href="https://ethnus.com/"> Ethnus</a> Website
+                </td>
+            </tr>
+        </table>
+        <br>
+        <center><input type="submit" id="registerButton" value=" Register "/></center>
+        <br><br>
+    </form>
+    <script>
+            function validate(){
+            fname=document.getElementById("fname").value;
+            lname=document.getElementById("lname").value;
+            email=document.getElementById("email").value;
+            msg=document.getElementById("address").value;
+            state=document.getElementById("state").value;
+            phonenumber=document.getElementById("phonenumber").value;
+            age=document.getElementById("age").value;
+            password=document.getElementById("password").value;
+            confirmpassword=document.getElementById("confirmpassword").value;
+            var cnt=0;
+            if(fname.length<3){
+                cnt++;
+                document.getElementById("fnamemsg").innerText="POOR";
+                document.getElementById("fnamemsg").style.color="red";
+                document.getElementById("fnamemsg").style.textAlign="left";
+            }
+            else{
+                document.getElementById("fnamemsg").innerText="";
+            }
+            if(lname.length<3){
+                cnt++;
+                document.getElementById("lnamemsg").innerText="POOR";
+                document.getElementById("lnamemsg").style.color="red";
+                document.getElementById("lnamemsg").style.textAlign="left";
+            }
+            else{
+                document.getElementById("lnamemsg").innerText="";
+            }
+            if(!email.match(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/)){
+                cnt++;
+                document.getElementById("emailmsg").innerText="POOR";
+                document.getElementById("emailmsg").style.color="red";
+                document.getElementById("emailmsg").style.textAlign="left";
+            }
+            else{
+                document.getElementById("emailmsg").innerText="";
+            }
+            if(msg.length==0){
+                cnt++;
+                document.getElementById("addressmsg").innerText="POOR";
+                document.getElementById("addressmsg").style.color="red";
+                document.getElementById("addressmsg").style.textAlign="left";
+            }
+            else{
+                document.getElementById("addressmsg").innerText="";
+            }
+            if(state.length<3){
+                cnt++;
+                document.getElementById("statemsg").innerText="POOR";
+                document.getElementById("statemsg").style.color="red";
+                document.getElementById("statemsg").style.textAlign="left";
+            }
+            else{
+                document.getElementById("statemsg").innerText="";
+            }
+            if(phonenumber.length<4){
+                cnt++;
+                document.getElementById("phonenumbermsg").innerText="POOR";
+                document.getElementById("phonenumbermsg").style.color="red";
+                document.getElementById("phonenumbermsg").style.textAlign="left";
+            }
+            else{
+                document.getElementById("phonenumbermsg").innerText="";
+            }
+            if(age.length<2){
+                cnt++;
+                document.getElementById("agemsg").innerText="POOR";
+                document.getElementById("agemsg").style.color="red";
+                document.getElementById("agemsg").style.textAlign="left";
+            }
+            else{
+                document.getElementById("agemsg").innerText="";
+            }
+            if(password.length<9){
+                cnt++;
+                document.getElementById("passwordmsg").innerText="POOR";
+                document.getElementById("passwordmsg").style.color="red";
+                document.getElementById("passwordmsg").style.textAlign="left";
+            }
+            else{
+                document.getElementById("passwordmsg").innerText="";
+            }
+            if(confirmpassword.length == 0){
+                document.getElementById("confirmpasswordmsg").innerText="POOR OR MISMATCH";
+                document.getElementById("confirmpasswordmsg").style.color="red";
+                document.getElementById("confirmpasswordmsg").style.textAlign="left";
+            }
+            else if(password != confirmpassword){
+                document.getElementById("confirmpasswordmsg").innerText="POOR OR MISMATCH";
+                document.getElementById("confirmpasswordmsg").style.color="red";
+                document.getElementById("confirmpasswordmsg").style.textAlign="left";
+            }
+            else{
+                document.getElementById("confirmpasswordmsg").innerText="";
+            }
+            if(cnt>0){
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

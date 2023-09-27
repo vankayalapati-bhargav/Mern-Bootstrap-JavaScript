@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin-top: 15%;
+            font-size: 20px;
+        }
+        td{
+            text-align: right;
+        }
+        input{
+            float: left;
+            padding: 5px;
+        }
+        span{
+            display: flex;
+            justify-items: start;
+        }
+        .class1{
+            height:30px;
+            width:60px;
+            cursor:pointer;
+        }
+        .class1:hover{
+            -webkit-text-fill-color: white;
+            background-color: blue;
+            border-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return validate()" action="https://www.ethnus.com">
+        <table align="center">
+            <tr><td>Name:</td><td><input type="text" id="name" name="name"></td><td><span id="namemsg"></span></td></tr>
+            <tr><td>Email:</td><td> <input type="text" name="email" id="email"></td><td><span id="emailmsg"></span></td></tr>
+            <tr><td>Website:</td><td> <input type="text" name="url" id="url"> </td><td><span id="urlmsg"></span></td></tr>
+            <tr><td>Message:</td><td> <textarea name="msg" id="msg" cols="26" rows="5"></textarea></td><td><span id="errmsg"></span></td></tr>
+            <tr><td></td><td><input class="class1" type="submit" name="submit" id="submit"></td></tr>
+        </table>
+    </form>
+    <script>
+        function validate(){
+            name=document.getElementById("name").value;
+            email=document.getElementById("email").value;
+            url=document.getElementById("url").value;
+            msg=document.getElementById("msg").value;
+            var cnt=0;
+            if(name.length<3){
+                cnt++;
+                document.getElementById("namemsg").innerText="This field is required";
+                document.getElementById("namemsg").style.color="red";
+                document.getElementById("namemsg").style.textAlign="left";
+                document.getElementById("name").style.borderColor="red";
+            }
+            else{
+                document.getElementById("namemsg").innerText="";
+                document.getElementById("name").style.borderColor="";
+            }
+            if(!email.match(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/)){
+                cnt++;
+                document.getElementById("emailmsg").innerText="A valid email address is required";
+                document.getElementById("emailmsg").style.color="red";
+                document.getElementById("emailmsg").style.textAlign="left";
+                document.getElementById("email").style.borderColor="red";
+            }
+            else{
+                document.getElementById("emailmsg").innerText="";
+                document.getElementById("email").style.borderColor="";
+            }
+            if(!url.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%.\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%\+.~#?&//=]*)/)){
+                cnt++;
+                document.getElementById("urlmsg").innerText="A valid url is required";
+                document.getElementById("urlmsg").style.color="red";
+                document.getElementById("urlmsg").style.textAlign="left";
+                document.getElementById("url").style.borderColor="red";
+            }
+            else{
+                document.getElementById("urlmsg").innerText="";
+                document.getElementById("url").style.borderColor="";
+            }
+            if(msg.length==0){
+                cnt++;
+                document.getElementById("errmsg").innerText="This field is required";
+                document.getElementById("errmsg").style.color="red";
+                document.getElementById("errmsg").style.textAlign="left";
+                document.getElementById("msg").style.borderColor="red";
+            }
+            else{
+                document.getElementById("errmsg").innerText="";
+                document.getElementById("msg").style.borderColor="";
+            }
+            if(cnt>0){
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <style>
+        #id1{
+            height:35px;
+            font-size: 15px;
+            text-align: center;
+            width:100px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            cursor: pointer;
+        }
+        #id1:hover{
+            background-color: red;
+            border-color: red;
+            -webkit-text-fill-color: white;
+        }
+    </style>
+    <body>
+        <button type="submit" id="id1" onClick="return date()">show date</button>
+        <div id="time"></div>
+        </br>
+        <button type="submit" id="id1" onClick="return time()">show Time</button>
+        <div id = "date-time"></div>
+    </body>
+    <script>
+        function date(){
+            var today=new Date();
+            var dd=today.getDate();
+            var mm=today.toLocaleString('default',{month:'long'});
+            var yyyy=today.getFullYear();
+            today = dd + '/' + mm + '/' + yyyy;
+            document.getElementById('time').innerHTML=today;
+        }
+        function time(){
+            var dt = new Date();
+            document.getElementById('date-time').innerHTML=dt;
+        }
+    </script>
+</html>

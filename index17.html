@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #id10{
+            -webkit-text-fill-color: black;
+        }
+        #id9{
+            margin-left:50px;
+            text-align: center;
+            width:30px;
+            height:29px;
+            border:white;
+        }
+        .error-message{
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        #id8{
+            border:white;
+            -webkit-text-fill-color: red;
+            text-align: center;
+            height:20px;
+            width:20px;
+            background-color: white;
+            padding:5px;
+            margin-left:480px;
+            margin-top:-55px;
+            font-size: 15px;
+            cursor:pointer;
+        }
+        #id7{
+            margin-left:50px;
+            text-align: center;
+            width:30px;
+            height:29px;
+            border:white;
+        }
+    </style>
+</head>
+<body>
+    <div style="height:700px;width:900px;background-color: lightgray;">
+        <form>
+            <div>
+                <label for="firstName" style="margin-top:30px;margin-left:10px;">First Name</label>
+                <button id="id9" style="margin-top:20px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">
+                    <span class="glyphicon glyphicon-user"></span>
+                </button>
+                <input type="text" id="firstName" placeholder="First Name" required style="margin-top:20px;height:30px;width:500px;margin-left:-4px;">
+            </div>
+            <div class="error-message" id="firstNameError" style="margin-left:135px">Please supply your first name
+                <div id="id8" onclick="resetInputField1()">X</div>
+            </div>
+            <div>
+                <label for="lastName" style="margin-top:30px;margin-left:10px;">Last Name</label>
+                <button id="id9" style="margin-top:20px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">
+                    <span class="glyphicon glyphicon-user"></span>
+                </button>
+                <input type="text" id="lastName" placeholder="Last Name" required style="margin-top:20px;height:30px;width:500px;margin-left:-4px">
+            </div>
+            <div class="error-message" id="lastNameError" style="margin-left:135px">Please supply your last name
+                <div id="id8" onclick="resetInputField2()">X</div>
+            </div>
+            <div>
+                <label for="email" style="margin-top:30px;margin-left:40px;">E-Mail</label>
+                <button id="id9" style="margin-top:20px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                </button>
+                <input type="email" id="email" placeholder="E-Mail Address" required style="margin-top:20px;height:30px;width:500px;margin-left:-4px">
+            </div>
+            <div class="error-message" id="emailError" style="margin-left:135px">Please supply your email address
+                <div id="id8" onclick="resetInputField3()">X</div>
+            </div>
+            <div>
+                <label for="phone" style="margin-top:30px;margin-left:27px;">Phone #</label>
+                <button id="id9" style="margin-top:20px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">
+                    <span class="glyphicon glyphicon-earphone"></span>
+                </button>
+                <input type="tel" id="phone" placeholder="(845)555-1212" required style="margin-top:20px;height:30px;width:500px;margin-left:-4px">
+            </div>
+            <div class="error-message" id="phoneError" style="margin-left:135px">Please supply your phone number
+                <div id="id8" onclick="resetInputField4()">X</div>
+            </div>
+            <div>
+                <label for="address" style="margin-top:30px;margin-left:27px;">Address</label>
+                <button id="id9" style="margin-top:20px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">
+                    <span class="glyphicon glyphicon-home"></span>
+                </button>
+                <input type="text" id="address" placeholder="Address" required style="margin-top:20px;height:30px;width:500px;margin-left:-4px">
+            </div>
+            <div class="error-message" id="addressError" style="margin-left:135px">Please supply your street address
+                <div id="id8" onclick="resetInputField5()">X</div>
+            </div>
+            <div>
+                <label for="city" style="margin-top:30px;margin-left:57px;">City</label>
+                <button id="id9" style="margin-top:20px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">
+                    <span class="glyphicon glyphicon-home"></span>
+                </button>
+                <input type="text" id="city" placeholder="city" required style="margin-top:20px;height:30px;width:500px;margin-left:-4px">
+            </div>
+            <div class="error-message" id="cityError" style="margin-left:135px">Please supply your city
+                <div id="id8" onclick="resetInputField6()">X</div>
+            </div>
+            <div>
+                <label for="state" style="margin-top:30px;margin-left:50px;">State</label>
+                <button id="id7" style="margin-top:20px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">
+                    <span class="glyphicon glyphicon-list"></span>
+                </button>
+                <select style="margin-top:20px;height:30px;width:500px;margin-left:-4px;">
+                    <option>Please select your state</option>
+                    <option>AP</option>
+                </select>
+            </div>
+            <div>
+                <label for="hosting" style="margin-top:30px;margin-left:10px">Do you have hosting?</label>
+                <div class="input-group" style="margin-left:180px;margin-top:-24px;">
+                    <input type="radio" name="hosting" value="Yes"/>Yes
+                    </br>
+                    <input type="radio" name="hosting" value="No"/>No
+                </div>
+            </div>
+        </br>
+            <div class="form-group" style="margin-left:10px;">
+                <label for="Project Description">Project Description</label>
+                <button style="margin-left:30px;height:60px;border:white;width:40px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <div style="margin-top:-30px;margin-left:200px;">
+                    <textarea type="text" placeholder="Project Description" style="margin-left:2px;width:450px;height:60px;margin-top:-30px;"></textarea>
+                </div>
+            </div>
+            <center>
+                <button type="button" class="btn btn-primary" id="submitBtn" style="border:orange;background-color: orange;margin-top:50px;width:75px;text-align: left;">Send
+                    <span class="glyphicon glyphicon-send"></span>
+                </button>
+            </center>
+        </form>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function (){
+            const firstName = document.getElementById('firstName');
+            document.getElementById('firstNameError').style.display = 'block';
+            document.querySelector('label[for="firstName"]').style.color = 'red';
+            firstName.style.border='1px solid red';
+            const lastName = document.getElementById('lastName');
+            document.getElementById('lastNameError').style.display = 'block';
+            document.querySelector('label[for="lastName"]').style.color = 'red';
+            lastName.style.border='1px solid red';
+            const email = document.getElementById('email');
+            document.getElementById('emailError').style.display = 'block';
+            document.querySelector('label[for="email"]').style.color = 'red';
+            email.style.border='1px solid red';
+            const phone = document.getElementById('phone');
+            document.getElementById('phoneError').style.display = 'block';
+            document.querySelector('label[for="phone"]').style.color = 'red';
+            phone.style.border='1px solid red';
+            const address = document.getElementById('address');
+            document.getElementById('addressError').style.display = 'block';
+            document.querySelector('label[for="address"]').style.color = 'red';
+            address.style.border='1px solid red';
+            const city = document.getElementById('city');
+            document.getElementById('cityError').style.display = 'block';
+            document.querySelector('label[for="city"]').style.color = 'red';
+            city.style.border='1px solid red';
+        });
+        document.getElementById('submitBtn').addEventListener('click', function () {
+            const buttonsToChangeColor = document.querySelectorAll('#id9');
+            buttonsToChangeColor.forEach(function (button) {
+                button.style.backgroundColor = 'red';
+            });
+        });
+        function resetInputField1() {
+            const inputField1 = document.getElementById("firstName");
+            const initialValue1 = "First Name";
+            inputField1.value = initialValue1;
+        }
+        function resetInputField2() {
+            const inputField1 = document.getElementById("lastName");
+            const initialValue1 = "Last Name";
+            inputField1.value = initialValue1;
+        }
+        function resetInputField3() {
+            const inputField1 = document.getElementById("email");
+            const initialValue1 = "E-Mail Address";
+            inputField1.value = initialValue1;
+        }
+        function resetInputField4() {
+            const inputField1 = document.getElementById("phone");
+            const initialValue1 = "(845)555-1212";
+            inputField1.value = initialValue1;
+        }
+        function resetInputField5() {
+            const inputField1 = document.getElementById("address");
+            const initialValue1 = "Address";
+            inputField1.value = initialValue1;
+        }
+        function resetInputField6() {
+            const inputField1 = document.getElementById("city");
+            const initialValue1 = "city";
+            inputField1.value = initialValue1;
+        }
+    </script>
+</body>
+</html>

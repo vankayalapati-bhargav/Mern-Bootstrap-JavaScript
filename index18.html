@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+        }
+        .form-container{
+            background-color: lightgrey;
+            width: 600px;
+            margin: 0 auto;
+            height:420px;
+        }
+        .input-group{
+            margin-bottom: 15px;
+        }
+        label{
+            display: block;
+            margin-bottom: 5px;
+        }
+        input{
+            width: calc(100% - 30px);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .tooltip{
+            display: none;
+            font-size: 12px;
+            color: red;
+            position:relative;
+            margin-top:5px;
+            margin-left:50px;
+        }
+        #id1{
+            border-radius: 50%;
+            background-color: white;
+            border:2px solid red;
+            height:15px;
+            width:15px;
+            text-align: center;
+            font-size: 14px;
+            -webkit-text-fill-color: red;
+            margin-left: 465px;
+            margin-top: -46px;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function validateForm(){
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const hobbiesInput = document.getElementById('hobbies');
+            if(document.getElementById('name').value.trim()===''){
+                document.getElementById('nameTooltip').style.display = 'block';
+            }
+            if(document.getElementById('email').value.trim()===''){
+                document.getElementById('emailTooltip').style.display = 'block';
+            }
+            if(document.getElementById('password').value.trim()===''){
+                document.getElementById('passwordTooltip').style.display = 'block';
+            }
+            document.getElementById('myForm').reset();
+            document.getElementById('nameTooltip').style.display = 'block';
+            nameInput.style.border='1px solid red';
+            document.getElementById('emailTooltip').style.display = 'block';
+            emailInput.style.border='1px solid red';
+            document.getElementById('passwordTooltip').style.display = 'block';
+            passwordInput.style.border='1px solid red';
+            return false;
+    }
+    </script>
+</head>
+<body>
+  <div class="form-container">
+    <form id="myForm" onsubmit="return validateForm()" action="https://www.amazon.in">
+      <div class="input-group">
+        <label for="name" style="margin-left:50px;">Name</label>
+        <input type="text" id="name" required style="margin-left:50px;height:35px;width:500px;border:1px solid black; border-top-right-radius: 5px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+        <div class="tooltip" id="nameTooltip">Please enter your name
+            <div id="id1">!</div>
+        </div>
+        </br>
+      </div>
+      <div class="input-group">
+        <label for="email" style="margin-left:50px;">Email</label>
+        <input type="email" id="email" required style="margin-left:50px;height:35px;width:500px;border:1px solid black; border-top-right-radius: 5px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+        <div class="tooltip" id="emailTooltip">Please enter your email
+            <div id="id1">!</div>
+        </div>
+        </br>
+      </div>
+      <div class="input-group">
+        <label for="password" style="margin-left:50px;">Password</label>
+        <input type="password" id="password" required style="margin-left:50px;height:35px;width:500px;border:1px solid black; border-top-right-radius: 5px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+        <div class="tooltip" id="passwordTooltip">Please enter your password
+            <div id="id1">!</div>
+        </div>
+        </br>
+      </div>
+      <div>
+        <label for="hobbies" style="margin-left:50px;">Hobbies</label>
+        <!--
+        <input type="hobbies" id="hobbies" style="height:35px;width:500px;border:1px solid black; border-top-right-radius: 5px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">-->
+        <select size="2" id="hobbies" style="margin-left:50px;font-size:3px;height:35px;width:500px;border:1px solid black; border-top-right-radius: 5px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+            <option></option><option></option><option></option><option></option><option></option><option></option><option></option><option></option>
+        </select>
+      </div>
+      </br>
+      <button type="submit" style="margin-left:50px;height:35px;font-size: 15px;text-align: center;width:500px;border:2px solid red;background-color:red;border-top-right-radius: 5px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;-webkit-text-fill-color: white;">Submit</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
